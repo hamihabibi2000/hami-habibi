@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryBackgroundBlack"
+    tools:context=".features.profile.ui.ViewProfileActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout_view_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/secondaryBackgroundDarkGray"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_view_profile"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextColor="@color/primaryTextWhite"
+            app:navigationIcon="@drawable/ic_arrow_back_white_24dp" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar_view_profile"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView_view_profile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/textViewPhotosLabel_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Photos"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/primaryAccentPurple"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPhotos_view"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginBottom="16dp"
+                tools:listitem="@layout/item_photo_view"
+                tools:itemCount="3"/>
+
+            <TextView
+                android:id="@+id/textViewNoPhotos_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No photos yet."
+                android:textColor="@color/secondaryTextCyan"
+                android:gravity="center"
+                android:padding="16dp"
+                android:background="@drawable/rounded_corner_secondary_bg"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/textViewUsername_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="CyberNinjaX"
+                style="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textColor="@color/primaryTextWhite"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/textViewBioLabel_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bio"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/primaryAccentPurple"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/textViewBio_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Loves neon lights and ramen. Exploring the digital frontier."
+                style="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="@color/primaryTextWhite"
+                android:lineSpacingMultiplier="1.2"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/textViewNoBio_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No bio provided."
+                android:textColor="@color/secondaryTextCyan"
+                android:gravity="center"
+                android:padding="16dp"
+                android:background="@drawable/rounded_corner_secondary_bg"
+                android:visibility="gone"/>
+
+            <!-- More details if needed -->
+             <TextView
+                android:id="@+id/textViewDetailsLabel_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Details"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/primaryAccentPurple"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+                <ImageView
+                    android:id="@+id/imageViewLocationStatus"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    tools:src="@drawable/ic_location_on_24dp"
+                    app:tint="@color/secondaryTextCyan"/>
+                <TextView
+                    android:id="@+id/textViewLocationStatus_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Location Sharing: Enabled"
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:textColor="@color/secondaryTextCyan"/>
+            </LinearLayout>
+
+             <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="4dp">
+                <ImageView
+                    android:id="@+id/imageViewAccountType"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="8dp"
+                    tools:src="@drawable/ic_star_border_24dp"
+                    app:tint="@color/secondaryTextCyan"/>
+                <TextView
+                    android:id="@+id/textViewAccountType_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Account: Standard"
+                    style="@style/TextAppearance.MaterialComponents.Body2"
+                    android:textColor="@color/secondaryTextCyan"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

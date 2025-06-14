@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="160dp"
+    android:layout_height="210dp"
+    android:layout_marginEnd="12dp"
+    app:cardBackgroundColor="@color/secondaryBackgroundDarkGray"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Placeholder for actual Image loading. Consider using an ImageView library like Glide or Coil -->
+        <ImageView
+            android:id="@+id/imageViewPhoto_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_placeholder_photo_24dp"
+            app:tint="@color/secondaryTextCyan"
+            android:scaleType="centerCrop"
+            android:contentDescription="Profile Photo Gallery Item"/>
+
+        <TextView
+            android:id="@+id/textViewPhotoUrl_item_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primaryTextWhite"
+            android:background="@color/black_overlay_for_text"
+            android:textSize="10sp"
+            tools:ignore="SmallSp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:padding="4dp"
+            tools:text="placeholder_url_very_long_filename_that_should_be_ellipsized.jpg"/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

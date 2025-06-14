@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny all access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Allow read/write access to authenticated users for their own data.
+    // This will be refined for specific collections (e.g., user profiles, chats).
+    // For now, as a placeholder, allow authenticated users to read/write.
+    // This rule is overly permissive for a production app and needs refinement.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Placeholder for interests collection - assuming public readability for now
+    match /interests/{interestId} {
+      allow read: if true; // All users can read available interests
+      allow write: if false; // Should be admin-only or managed via console
+    }
+
+    // Placeholder for user_interests
+    match /user_interests/{userId}/interests/{interestId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Placeholder for matches - only involved users can read/write
+    // This is a simplified rule; actual implementation might involve checking UIDs in a participants array.
+    match /matches/{matchId} {
+      allow read, write: if request.auth != null; // Needs refinement to check if user is part of the match
+    }
+
+    // Placeholder for chat messages - only involved users in a match can read/write
+    // This also needs refinement based on how matches and chat participants are structured.
+    match /chats/{chatId}/{document=**} {
+      allow read, write: if request.auth != null; // Needs refinement
+    }
+  }
+}

@@ -1,0 +1,21 @@
+// Placeholder settings.gradle
+// In a real project, this would include modules, e.g.:
+// include ':app'
+//
+// And potentially plugin management for newer Gradle versions:
+// pluginManagement {
+//     repositories {
+//         google()
+//         mavenCentral()
+//         gradlePluginPortal()
+//     }
+// }
+// dependencyResolutionManagement {
+//     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+// }
+rootProject.name = "CatchMeNearby"
+include ':app'

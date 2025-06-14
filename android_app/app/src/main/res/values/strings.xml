@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Catch Me Nearby</string>
+    <!-- Navigation Titles -->
+    <string name="title_discover">Discover</string>
+    <string name="title_matches">Matches</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- Authentication -->
+    <string name="auth_login_button">Login</string>
+    <string name="auth_signup_button">Sign Up</string>
+    <string name="auth_email_hint">Email</string>
+    <string name="auth_password_hint">Password</string>
+
+    <!-- General -->
+    <string name="placeholder_text">Placeholder</string>
+</resources>

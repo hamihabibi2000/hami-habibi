@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:gravity="center_vertical">
+
+    <!-- Placeholder for an actual image preview -->
+    <ImageView
+        android:id="@+id/imageViewPhotoPreview_item"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_placeholder_photo_24dp"
+        app:tint="@color/secondaryTextCyan"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewPhotoUrl_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="photo_url_placeholder.jpg"
+        android:textColor="@color/primaryTextWhite"
+        android:textSize="14sp"
+        android:ellipsize="middle"
+        android:singleLine="true"
+        android:layout_marginEnd="8dp"/>
+
+    <Button
+        android:id="@+id/buttonRemovePhoto_item"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove"
+        android:textColor="@color/highlightPurple"
+        app:icon="@drawable/ic_remove_circle_outline_24dp"
+        app:iconTint="@color/highlightPurple"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"/>
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav_graph"
+    app:startDestination="@id/discoveryFragment">
+
+    <!-- Placeholder fragment definitions. Actual class names would be used. -->
+    <fragment
+        android:id="@+id/discoveryFragment"
+        android:name="com.catchmenearby.features.discovery.ui.DiscoveryFragment"
+        android:label="fragment_discovery"
+        tools:layout="@layout/placeholder_fragment_layout" /> <!-- Assume placeholder_fragment_layout.xml for tools preview -->
+    <fragment
+        android:id="@+id/matchesFragment"
+        android:name="com.catchmenearby.features.chat.ui.MatchesListFragment"
+        android:label="fragment_matches_list"
+        tools:layout="@layout/placeholder_fragment_layout" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.catchmenearby.features.profile.ui.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/placeholder_fragment_layout" />
+</navigation>

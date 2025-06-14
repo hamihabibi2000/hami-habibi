@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cyber-Violet Fusion Palette -->
+    <color name="primaryAccentPurple">#8A2BE2</color>
+    <color name="highlightPurple">#A700CD</color>
+    <color name="primaryBackgroundBlack">#000000</color>
+    <color name="secondaryBackgroundDarkGray">#1A1A1A</color>
+    <color name="primaryTextWhite">#FFFFFF</color>
+    <color name="secondaryTextCyan">#00FFFF</color>
+
+    <!-- Original Default Colors (can be kept for reference or specific uses) -->
+    <color name="colorPrimary">@color/primaryAccentPurple</color> <!-- Using new palette -->
+    <color name="colorPrimaryDark">@color/highlightPurple</color> <!-- Using new palette -->
+    <color name="colorAccent">@color/secondaryTextCyan</color> <!-- Using new palette -->
+
+    <color name="black">#FF000000</color> <!-- Default black, fully opaque -->
+    <color name="white">#FFFFFFFF</color> <!-- Default white, fully opaque -->
+    <color name="black_overlay_for_text">#80000000</color> <!-- Semi-transparent black for text backgrounds -->
+</resources>

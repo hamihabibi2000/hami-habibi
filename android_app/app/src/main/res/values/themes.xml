@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <!-- Using Theme.Material3.Dark as parent for modern Material Design components in a dark theme -->
+    <style name="Base.Theme.CatchMeNearby" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryAccentPurple</item>
+        <item name="colorPrimaryVariant">@color/highlightPurple</item> <!-- Used for status bar, etc. -->
+        <item name="colorOnPrimary">@color/primaryTextWhite</item> <!-- Text/icons on primary color -->
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryTextCyan</item>
+        <item name="colorSecondaryVariant">@color/secondaryTextCyan</item> <!-- Can be a darker shade of cyan if needed -->
+        <item name="colorOnSecondary">@color/primaryBackgroundBlack</item> <!-- Text/icons on secondary color -->
+
+        <!-- Background colors -->
+        <item name="android:windowBackground">@color/primaryBackgroundBlack</item>
+        <item name="android:colorBackground">@color/primaryBackgroundBlack</item> <!-- General background -->
+        <item name="colorSurface">@color/secondaryBackgroundDarkGray</item> <!-- Surface colors for cards, sheets, menus -->
+        <item name="colorOnSurface">@color/primaryTextWhite</item> <!-- Text/icons on surface color -->
+        <item name="colorError">#CF6679</item> <!-- Standard Material dark theme error color -->
+        <item name="colorOnError">#000000</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/primaryTextWhite</item>
+        <item name="android:textColorSecondary">@color/secondaryTextCyan</item> <!-- For less prominent text -->
+        <item name="android:textColorHint">@color/secondaryTextCyan</item> <!-- Hint text color -->
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primaryBackgroundBlack</item>
+        <!-- For older APIs, statusBarColor might not be available directly or might need different handling -->
+        <!-- <item name="android:statusBarColor">@color/primaryBackgroundBlack</item> for API 21+ -->
+
+
+        <!-- Font Family (Using system default sans-serif as per requirement) -->
+        <item name="fontFamily">sans-serif</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <!-- For specific weights if needed, e.g., <item name="android:fontFamily">sans-serif-medium</item> -->
+
+        <!-- Control Activated Color (e.g., for checkboxes, radio buttons, switches when checked) -->
+        <item name="colorControlActivated">@color/primaryAccentPurple</item>
+        <!-- Control Normal Color (e.g., for unchecked state) -->
+        <item name="colorControlNormal">@color/secondaryTextCyan</item>
+
+        <!-- BottomNavigationView style -->
+        <item name="bottomNavigationStyle">@style/Widget.CatchMeNearby.BottomNavigationView</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.CatchMeNearby" parent="Base.Theme.CatchMeNearby" />
+
+    <!-- Specific style for BottomNavigationView -->
+    <style name="Widget.CatchMeNearby.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.CatchMeNearby.BottomNavigationView</item>
+        <item name="itemIconTint">@drawable/bottom_nav_item_color_selector</item>
+        <item name="itemTextColor">@drawable/bottom_nav_item_color_selector</item>
+        <item name="android:background">@color/secondaryBackgroundDarkGray</item>
+    </style>
+
+    <!-- ThemeOverlay to ensure correct colors for BottomNav -->
+    <style name="ThemeOverlay.CatchMeNearby.BottomNavigationView" parent="">
+        <item name="colorPrimary">@color/primaryAccentPurple</item> <!-- Selected item color -->
+        <item name="colorOnSurface">@color/secondaryTextCyan</item> <!-- Unselected item color -->
+    </style>
+
+</resources>
