@@ -76,13 +76,12 @@ Configuration lives in `.claude/settings.json` and is checked in, so edits affec
 - **Hooks** (`.claude/settings.json`):
   - `SessionStart` / `SubagentStart` / `UserPromptSubmit` run the ponytail Node hooks —
     these work.
-  - `PreToolUse` on `Bash|Grep` and `Read|Glob` call `graphify hook-guard`. The `graphify`
-    binary is **not installed here**, and these hooks previously hardcoded
-    `/root/.local/bin/graphify`, so they exited 127 on *every* Bash, Grep, Read and Glob
-    call — a hook error surfaced on each tool use. They are now guarded with
-    `command -v graphify` and exit 0 when it is absent. If you add a hook that shells out
-    to an optional binary, guard it the same way. Don't assume graph-backed search is
-    available.
+  - There are no `PreToolUse` hooks. Two of them used to shell out to
+    `/root/.local/bin/graphify hook-guard`; since `graphify` is not installed, they exited
+    127 on *every* Bash, Grep, Read and Glob call and surfaced a hook error each time, so
+    they were removed. If you add a hook that shells out to an optional binary, guard it
+    with `command -v <bin> >/dev/null 2>&1 && ... || true` so a missing binary stays
+    silent.
 - **Statusline** (`.claude/statusline.sh`) — prints `<dir> (<branch>) [PONYTAIL]`; requires
   `python3` and `git`.
 - **MCP** (`.mcp.json`) — `higgsfield` over HTTP. It needs OAuth, which can't be completed
