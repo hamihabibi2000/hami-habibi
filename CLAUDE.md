@@ -2,14 +2,20 @@
 
 Game design documentation for an asymmetric multiplayer chase game ("Catch Me If You
 Can" style: **Runners** evade, **Hunters** pursue). This repo holds **prose design docs
-only** — there is no application code, build system, package manager, test suite, or
-linter. Changes are reviewed by reading them.
+only** — the project itself has no application code, build system, package manager,
+test suite, or linter. Changes are reviewed by reading them.
+
+Caveat for searching: `.claude/skills/` vendors ~58k lines of third-party Node
+(`impeccable` alone is most of it). It is installed tooling, not this project's code —
+scope `grep`/`glob` to `docs/` and `CLAUDE.md` unless you are debugging the tooling
+itself.
 
 ## Layout
 
 ```
 docs/maps/UrbanJungle.md   The only content file: Urban Jungle map design (Vice City / 80s Miami theme)
 CLAUDE.md                  This file
+.claude/CLAUDE.md          Second auto-loaded instruction file (graphify slash-command note)
 .claude/                   Claude Code configuration: skills, hooks, statusline
 .mcp.json                  MCP servers (higgsfield, HTTP — requires interactive OAuth)
 ```
@@ -44,14 +50,16 @@ Known issue: `docs/maps/UrbanJungle.md:19` contains a stray non-English word
 
 ## Workflow
 
-- **Branches**: feature branches, kebab-case, descriptive prefix —
-  e.g. `feature/vice-city-map-design`. Never commit directly to a shared branch you
-  weren't asked to use.
+- **Branches**: only one hand-made branch exists so far (`feature/vice-city-map-design`),
+  so treat `<prefix>/<kebab-case-description>` as a sample of one rather than a settled
+  rule. Never commit directly to a shared branch you weren't asked to use.
 - **Commits**: short imperative subject describing the design change
   (e.g. "Draft initial map design for Urban Jungle (Vice City theme)").
 - **Verification**: there is nothing to run. Verify by re-reading the diff for structural
   consistency with the section format above and for vocabulary consistency.
-- **Push**: `git push -u origin <branch-name>`. Don't open a PR unless asked.
+- **Push**: `git push -u origin <branch-name>`. The repo's tooling commit landed as a
+  squashed PR merge (`#1`), so PRs are how work reaches the main line here — but open one
+  only when asked, since the Claude Code harness requires an explicit request.
 
 ## Claude Code tooling (`.claude/`)
 
@@ -68,9 +76,13 @@ Configuration lives in `.claude/settings.json` and is checked in, so edits affec
 - **Hooks** (`.claude/settings.json`):
   - `SessionStart` / `SubagentStart` / `UserPromptSubmit` run the ponytail Node hooks —
     these work.
-  - `PreToolUse` on `Bash|Grep` and `Read|Glob` call `/root/.local/bin/graphify hook-guard`.
-    **The `graphify` binary is not installed in this environment**, so these are currently
-    no-ops. Don't assume graph-backed search is available.
+  - `PreToolUse` on `Bash|Grep` and `Read|Glob` call `graphify hook-guard`. The `graphify`
+    binary is **not installed here**, and these hooks previously hardcoded
+    `/root/.local/bin/graphify`, so they exited 127 on *every* Bash, Grep, Read and Glob
+    call — a hook error surfaced on each tool use. They are now guarded with
+    `command -v graphify` and exit 0 when it is absent. If you add a hook that shells out
+    to an optional binary, guard it the same way. Don't assume graph-backed search is
+    available.
 - **Statusline** (`.claude/statusline.sh`) — prints `<dir> (<branch>) [PONYTAIL]`; requires
   `python3` and `git`.
 - **MCP** (`.mcp.json`) — `higgsfield` over HTTP. It needs OAuth, which can't be completed
